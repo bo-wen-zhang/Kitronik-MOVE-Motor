@@ -1,4 +1,4 @@
-## Introduction
+## **Introduction**
 
 It is recommended to use the [micro:bit Python Editor](https://python.microbit.org/v/3) when working through these tutorials.
 
@@ -6,7 +6,7 @@ In this tutorial we will refer to our :MOVE Motor robot as a buggy by storing it
 
 Make sure that your :MOVE Motor chassis is switched on when you want to run a program. You should press the micro:bit's power button to restart the stored program.
 
-### Moving the :MOVE Motor forward
+## **Moving the :MOVE Motor forward**
 
 ``` py linenums="1" title="main.py"
 from microbit import *
@@ -22,7 +22,7 @@ buggy.motorOn("r", "f", 25)
 
 To stop the buggy moving we will need to switch off the chassis because we never turn the motors off in the program.
 
-### Moving the :MOVE Motor backward
+## **Moving the :MOVE Motor backward**
 
 ``` py linenums="1" title="main.py"
 from microbit import *
@@ -36,7 +36,7 @@ buggy.motorOn("r", "r", 25)
 
 We can move the buggy backward by changing the second argument for both calls to `motorOn()` to `"r"` for reverse.
 
-### Moving the :MOVE Motor forward, stopping after 5 seconds
+## **Moving the :MOVE Motor forward, stopping after 5 seconds**
 
 ``` py linenums="1" title="main.py"
 from microbit import *
