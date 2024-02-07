@@ -239,24 +239,24 @@ class MOVEMotor:
         self.motorOff(RIGHT)
         
     # Servo Control
-    def goToPosition(self, servo: int, degrees: int):
+    def writeServoDegree(self, servo: int, degrees: int):
         """
-        Converts degrees to microseconds and calls goToPeriod
+        Control the position of the selected servo using a given degree.
 
         Args:
-            servo (int): Integer 1 or 2, as per the chassis
-            degrees (int): TODO
+            servo (int): Integer for servo 1 or 2, as per the chassis.
+            degrees (int): Target position of the servo.
         """
         period = SERVO_MIN_PULSE_uS + (SERVO_DEG_TO_uS * degrees)
         self.goToPeriod(servo, period)
         
-    def goToPeriod(self, servo: int, period: int):
+    def writeServoPeriod(self, servo: int, period: int):
         """
-        Write analog to servos on pins 15 and 16.
+        Simulates an analogue output using PWW on the selected servo with a given period.
 
         Args:
-            servo (int): Integer 1 or 2, as per the chassis
-            period (int): TODO
+            servo (int): Integer for servo 1 or 2, as per the chassis.
+            period (int): Period of the PWN signal.
         """
         
         if servo < 1:
@@ -335,6 +335,9 @@ class MOVEMotor:
         self._leds.show()
 
     def brakeLightsOff(self):
+        """
+        Turn off the brake lights.
+        """
         frontLeftColour = self._leds[0]
         frontRightColour = self._leds[1]
         self._leds.clear()
@@ -352,8 +355,13 @@ class MOVEMotor:
         
         music.pitch(185, duration)
 
-    def measureUltrasound(self):
-        #send pulse
+    def measureDistance(self) -> int:
+        """
+        Measures distance (in cm) using the ultrasonic sensor.
+
+        Returns:
+            distance (int): Returns an integer representing the distance (in cm rounded down) of the object in front of the ultrasonic sensor. Returns -2 or -1 if there is an issue with reading the pulse.
+        """
         pin13.set_pull(pin13.NO_PULL)
         pin13.write_digital(0)
         sleep_us(2)
@@ -361,22 +369,11 @@ class MOVEMotor:
         sleep_us(10)
         pin13.write_digital(0)
         
-        pulse = machine.time_pulse_us(pin14, 1, 500 * 39)
-        return pulse
-    #     // read pulse
-    #     const pulse = pins.pulseIn(echoPin, PulseValue.High, maxCmDistance * 39);
-    #     //From the HC-SR04 datasheet the formula for calculating distance is "microSecs of pulse"/58 for cm or "microSecs of pulse"/148 for inches.
-    #     //When measured actual distance compared to calculated distanceis not the same.  There must be an timing measurement with the pulse.
-    #     //values have been changed to match the correct measured distances so 58 changed to 39 and 148 changed to 98
-    #     //added variable that is set depending on the version of hardware used in the Move Motor 
-    #     switch (units) {
-    #         case Units.Centimeters: return Math.idiv(pulse, cmEquationDivider);
-    #         case Units.Inches: return Math.idiv(pulse, inEquationDivider);
-    #         //case Units.Centimeters: return Math.idiv(pulse, 39);
-    #         //case Units.Inches: return Math.idiv(pulse, 98);
-    #         default: return 0;
-    #     }
-    # }
+        #From the HC-SR04 datasheet the formula for calculating distance is "microSecs of pulse"/58 for cm
+        pulse = machine.time_pulse_us(pin14, 1, 500 * 58)
+        distance = pulse // 58
+        return distance
+
     
     def readLineSensor(self, sensor: str):
         """

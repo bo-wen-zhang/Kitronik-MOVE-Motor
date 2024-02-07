@@ -30,6 +30,4 @@ plugins:
 nav:
   - index.md
   - tutorials.md
-  - how-to-guides.md
   - API_Reference.md
-  - explanation.md
