@@ -24,6 +24,9 @@
 # The code below has been modified and extended to fit teaching purposes.
 # Copyright (c) Bo Wen Zhang 2024.
 
+"""This module allows the user to interact with the Kitronik MOVE Motor.
+"""
+
 from microbit import i2c, pin1, pin2, pin3, pin8, pin12, pin13, pin14, pin15, pin16, display, sleep
 from neopixel import NeoPixel
 import machine
@@ -81,10 +84,12 @@ SERVO_PWM_PERIOD_MS = 20
 LEDS_NUMBER = 4
 
 class MOVEMotor:
+    """Class containing methods for controlling the :MOVE Motor.
+    """
 
     def __init__(self):
         """
-        Sets up the PCA (Printed Circuit Assembly) chip correctly.
+        Initializes a new MOVEMotor object and sets up the PCA (Printed Circuit Assembly) chip.
 
         Raises:
             OSError: microPython will likely raise OS error 19 if the MOVE Motor is off as it cannot talk to the I2C (Inter-Integrated Circuit) chip.
@@ -247,7 +252,7 @@ class MOVEMotor:
         
     def goToPeriod(self, servo: int, period: int):
         """
-        Write analogy to servos on pins 15 and 16.
+        Write analog to servos on pins 15 and 16.
 
         Args:
             servo (int): Integer 1 or 2, as per the chassis
