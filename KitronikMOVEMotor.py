@@ -144,13 +144,14 @@ class MOVEMotor:
     def motorOn(self, motor: str, direction: str, speed: int):
         """
         Sets the requested motor running in the chosen direction at the set speed.
+        At speeds lower than 20 the motor gets given a 'shove' at full speed to help it start.
 
         Args:
             motor (str): "l" for left, "r" for right
             direction (str): "f" for forward, "r" for reverse
             speed (int): speed between 0-100
         """
-        speed = int(speed/100*255)
+        speed = int(speed*2.55)
         if speed > 255:
             speed = 255
         elif speed < 0:
@@ -171,32 +172,35 @@ class MOVEMotor:
             elif direction == REVERSE:
                 motorBackward[1] = speed
             i2c.write(CHIP_ADDR, motorForward, False)
+            sleep(1)
             i2c.write(CHIP_ADDR, motorBackward, False)
         
         else:
             # V3 :MOVE Motor
             motorBuf = bytearray([0, 0, 0])
-            motorJump = bytearray([0, 0, 0])
+            motorShove = bytearray([0, 0, 0])
             wsIndex = 0
             if motor == LEFT:
                 wsIndex = 1
                 if direction == FORWARD:
                     motorBuf[0] = speed
-                    motorJump[0] = 255
-                elif direction == RIGHT:
+                    motorShove[0] = 255
+                elif direction == REVERSE:
                     motorBuf[1] = speed
-                    motorJump[1] = 255
+                    motorShove[1] = 255
             elif motor == RIGHT:
                 wsIndex = 0
                 if direction == FORWARD:
                     motorBuf[1] = speed
-                    motorJump[1] = 255
+                    motorShove[1] = 255
                 elif direction == REVERSE:
                     motorBuf[0] = speed
-                    motorJump[0] = 255
-            self._ws2811[wsIndex] = (motorJump[0], motorJump[1], motorJump[2])
-            self._ws2811.show()
-            sleep(1)
+                    motorShove[0] = 255
+            if speed < 51:
+                #Gives the motor a 'shove' at full power to aid starting on lower pwm ratios
+                self._ws2811[wsIndex] = (motorShove[0], motorShove[1], motorShove[2])
+                self._ws2811.show()
+                sleep(5)
             self._ws2811[wsIndex] = (motorBuf[0], motorBuf[1], motorBuf[2])
             self._ws2811.show()
 
