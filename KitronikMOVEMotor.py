@@ -252,15 +252,15 @@ class MOVEMotor:
             degrees (int): Target position of the servo.
         """
         period = SERVO_MIN_PULSE_uS + (SERVO_DEG_TO_uS * degrees)
-        self.goToPeriod(servo, period)
+        self.writeServoPeriod(servo, period)
         
-    def writeServoPeriod(self, servo: int, period: int):
+    def writeServoPeriod(self, servo: int, period: float):
         """
         Simulates an analogue output using PWW on the selected servo with a given period.
 
         Args:
             servo (int): Integer for servo 1 or 2, as per the chassis.
-            period (int): Period of the PWN signal.
+            period (float): Period of the PWN signal.
         """
         
         if servo < 1:
