@@ -40,13 +40,15 @@
       
         
         
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        
+        <link rel="stylesheet" href="../assets/external/fonts.googleapis.com/css.49ea35f2.css">
         <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
     
       <link rel="stylesheet" href="../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../css/no-select.css">
     
     <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -172,7 +174,9 @@
 
 
 
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href=".." title="KitronikMOVEMotor Docs" class="md-nav__button md-logo" aria-label="KitronikMOVEMotor Docs" data-md-component="logo">
       
@@ -196,7 +200,7 @@
         
   
   <span class="md-ellipsis">
-    A Python Module for the Kitronik :MOVE Motor
+    Kitronik :MOVE Motor Python Module
   </span>
   
 
@@ -380,102 +384,6 @@
               </div>
             
             
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#introduction" class="md-nav__link">
-    <span class="md-ellipsis">
-      Introduction
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#moving-the-move-motor-forward" class="md-nav__link">
-    <span class="md-ellipsis">
-      Moving the :MOVE Motor forward
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#moving-the-move-motor-backward" class="md-nav__link">
-    <span class="md-ellipsis">
-      Moving the :MOVE Motor backward
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#moving-the-move-motor-forward-stopping-after-5-seconds" class="md-nav__link">
-    <span class="md-ellipsis">
-      Moving the :MOVE Motor forward, stopping after 5 seconds
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#turning-on-one-wheel" class="md-nav__link">
-    <span class="md-ellipsis">
-      Turning on one wheel
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#turning-by-pivoting" class="md-nav__link">
-    <span class="md-ellipsis">
-      Turning by pivoting
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-the-ultrasonic-sensor" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using the ultrasonic sensor
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#using-the-line-following-sensor" class="md-nav__link">
-    <span class="md-ellipsis">
-      Using the line following sensor
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           
             <div class="md-content" data-md-component="content">
@@ -486,11 +394,11 @@
 
   <h1>Tutorials</h1>
 
-<h2 id="introduction"><strong>Introduction</strong></h2>
+<h2 id="introduction"><strong>Introduction</strong><a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
 <p>It is recommended to use the <a href="https://python.microbit.org/v/3">micro:bit Python Editor</a> when working through these tutorials.</p>
 <p>In this tutorial we will refer to our :MOVE Motor robot as a buggy by storing it in a variable called <strong>buggy</strong>.</p>
 <p>Make sure that your :MOVE Motor chassis is switched on when you want to run a program. You should press the micro:bit's power button to restart the stored program.</p>
-<h2 id="moving-the-move-motor-forward"><strong>Moving the :MOVE Motor forward</strong></h2>
+<h2 id="moving-the-move-motor-forward"><strong>Moving the :MOVE Motor forward</strong><a class="headerlink" href="#moving-the-move-motor-forward" title="Permanent link">&para;</a></h2>
 <div class="language-py highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">main.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
 <span class="normal"><a href="#__codelineno-0-2">2</a></span>
 <span class="normal"><a href="#__codelineno-0-3">3</a></span>
@@ -509,7 +417,7 @@
 <li><code>motorOn()</code> accepts three arguments (motor, direction, speed).</li>
 </ol>
 <p>To stop the buggy moving we will need to switch off the chassis because we never turn the motors off in the program.</p>
-<h2 id="moving-the-move-motor-backward"><strong>Moving the :MOVE Motor backward</strong></h2>
+<h2 id="moving-the-move-motor-backward"><strong>Moving the :MOVE Motor backward</strong><a class="headerlink" href="#moving-the-move-motor-backward" title="Permanent link">&para;</a></h2>
 <div class="language-py highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">main.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
 <span class="normal"><a href="#__codelineno-1-2">2</a></span>
 <span class="normal"><a href="#__codelineno-1-3">3</a></span>
@@ -525,7 +433,7 @@
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">buggy</span><span class="o">.</span><span class="n">motorOn</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
 <p>We can move the buggy backward by changing the second argument for both calls to <code>motorOn()</code> to <code>"r"</code> for reverse.</p>
-<h2 id="moving-the-move-motor-forward-stopping-after-5-seconds"><strong>Moving the :MOVE Motor forward, stopping after 5 seconds</strong></h2>
+<h2 id="moving-the-move-motor-forward-stopping-after-5-seconds"><strong>Moving the :MOVE Motor forward, stopping after 5 seconds</strong><a class="headerlink" href="#moving-the-move-motor-forward-stopping-after-5-seconds" title="Permanent link">&para;</a></h2>
 <div class="language-py highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">main.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
 <span class="normal"><a href="#__codelineno-2-2">2</a></span>
 <span class="normal"><a href="#__codelineno-2-3">3</a></span>
@@ -548,7 +456,7 @@
 <li><code>stopMotors()</code> will stop both the left and right motors.</li>
 </ol>
 <p><code>sleep(5000)</code> will suspend the execution of the program for 5 seconds (5000ms).</p>
-<h2 id="turning-on-one-wheel"><strong>Turning on one wheel</strong></h2>
+<h2 id="turning-on-one-wheel"><strong>Turning on one wheel</strong><a class="headerlink" href="#turning-on-one-wheel" title="Permanent link">&para;</a></h2>
 <div class="language-py highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">main.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
@@ -574,7 +482,7 @@
 </span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="n">buggy</span><span class="o">.</span><span class="n">motorOff</span><span class="p">(</span><span class="s2">&quot;l&quot;</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
 <p>The program above starts off by moving forward for 2 seconds then turns right by only powering the left motor and keeping the right motor off.</p>
-<h2 id="turning-by-pivoting"><strong>Turning by pivoting</strong></h2>
+<h2 id="turning-by-pivoting"><strong>Turning by pivoting</strong><a class="headerlink" href="#turning-by-pivoting" title="Permanent link">&para;</a></h2>
 <div class="language-py highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">main.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
@@ -602,7 +510,7 @@
 </span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="n">buggy</span><span class="o">.</span><span class="n">stopMotors</span><span class="p">()</span>
 </span></code></pre></div></td></tr></table></div>
 <p>The program above will cause the robot to turn on the spot as one motor is put in reverse while the other remains forward.</p>
-<h2 id="using-the-ultrasonic-sensor"><strong>Using the ultrasonic sensor</strong></h2>
+<h2 id="using-the-ultrasonic-sensor"><strong>Using the ultrasonic sensor</strong><a class="headerlink" href="#using-the-ultrasonic-sensor" title="Permanent link">&para;</a></h2>
 <div class="language-py highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">main.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
@@ -632,7 +540,7 @@
 <li>The distance returned is in centimetres</li>
 </ol>
 <p>The program below will move forward at the speed of 25 if there isn't an object within a 10cm range front of it.</p>
-<h2 id="using-the-line-following-sensor"><strong>Using the line following sensor</strong></h2>
+<h2 id="using-the-line-following-sensor"><strong>Using the line following sensor</strong><a class="headerlink" href="#using-the-line-following-sensor" title="Permanent link">&para;</a></h2>
 <div class="language-py highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">main.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
 <span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
 <span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
@@ -723,10 +631,14 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": ["announce.dismiss", "content.action.edit", "content.action.view", "content.code.annotate", "content.code.copy", "toc.integrate", "header.autohide"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+        <script src="../js/iframe-height.js"></script>
+      
+        <script src="../assets/external/unpkg.com/mermaid@10.7.0/dist/mermaid.min.js"></script>
       
     
   </body>
