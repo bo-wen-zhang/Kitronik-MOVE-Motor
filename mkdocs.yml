@@ -8,8 +8,10 @@ theme:
     - content.action.view
     - content.code.annotate
     - content.code.copy
-  palette:
+    - toc.integrate 
+    - header.autohide
 
+  palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default 
@@ -26,6 +28,7 @@ theme:
 
 plugins:
   - mkdocstrings
+  - privacy
 
 nav:
   - index.md
@@ -41,4 +44,14 @@ markdown_extensions:
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - toc:
+      permalink: True
 
+extra_javascript:
+  - js/iframe-height.js
+
+extra_css:
+  - css/no-select.css

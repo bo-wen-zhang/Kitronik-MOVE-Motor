@@ -1,4 +1,4 @@
-# A Python Module for the Kitronik :MOVE Motor
+# Kitronik :MOVE Motor Python Module
 
 Documentation for a Python module which will be used in teaching KS3 students to program the BBC micro:bit and Kitronik :MOVE Motor.
 
