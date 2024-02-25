@@ -48,25 +48,25 @@ RIGHT_MOTOR = 0x02
 
 # Dictionary for mapping well known colours for LEDs from name to rgb decimal code
 colourMap = {
-    "Red": (255, 0, 0),
+    "red": (255, 0, 0),
     
-    "Orange": (255,165,0),
+    "orange": (255,165,0),
     
-    "Yellow": (255,255,0),
+    "yellow": (255,255,0),
     
-    "Green": (0,128,0),
+    "green": (0,128,0),
     
-    "Blue": (0, 0, 255),
+    "blue": (0, 0, 255),
     
-    "Cyan": (0, 255, 255),
+    "cyan": (0, 255, 255),
     
-    "Violet": (238,130,238),
+    "violet": (238,130,238),
     
-    "Purple": (128,0,128),
+    "purple": (128,0,128),
     
-    "White": (255, 255, 255),
+    "white": (255, 255, 255),
     
-    "Black": (0, 0, 0),
+    "black": (0, 0, 0),
 }
 
 LEFT = "l"
@@ -285,8 +285,8 @@ class MOVEMotor:
             led (int): Integer between 0-3 indicating the LED to set.
             colour (str): Name of colour. Choose from: Red, Orange, Yellow, Green, Blue, Cyan, Violet, Purple, White, Black. 
         """
-        
-        if colour.capitalize() not in colourMap:
+        colour = colour.lower()
+        if colour not in colourMap:
             return
         
         rgb = colourMap[colour]
