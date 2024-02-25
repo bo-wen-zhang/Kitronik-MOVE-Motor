@@ -1038,8 +1038,8 @@ reference for the technical implementation of the
 </span><span id="__span-0-285"><a id="__codelineno-0-285" name="__codelineno-0-285"></a><span class="sd">            led (int): Integer between 0-3 indicating the LED to set.</span>
 </span><span id="__span-0-286"><a id="__codelineno-0-286" name="__codelineno-0-286"></a><span class="sd">            colour (str): Name of colour. Choose from: Red, Orange, Yellow, Green, Blue, Cyan, Violet, Purple, White, Black. </span>
 </span><span id="__span-0-287"><a id="__codelineno-0-287" name="__codelineno-0-287"></a><span class="sd">        &quot;&quot;&quot;</span>
-</span><span id="__span-0-288"><a id="__codelineno-0-288" name="__codelineno-0-288"></a>
-</span><span id="__span-0-289"><a id="__codelineno-0-289" name="__codelineno-0-289"></a>        <span class="k">if</span> <span class="n">colour</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">colourMap</span><span class="p">:</span>
+</span><span id="__span-0-288"><a id="__codelineno-0-288" name="__codelineno-0-288"></a>        <span class="n">colour</span> <span class="o">=</span> <span class="n">colour</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</span><span id="__span-0-289"><a id="__codelineno-0-289" name="__codelineno-0-289"></a>        <span class="k">if</span> <span class="n">colour</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">colourMap</span><span class="p">:</span>
 </span><span id="__span-0-290"><a id="__codelineno-0-290" name="__codelineno-0-290"></a>            <span class="k">return</span>
 </span><span id="__span-0-291"><a id="__codelineno-0-291" name="__codelineno-0-291"></a>
 </span><span id="__span-0-292"><a id="__codelineno-0-292" name="__codelineno-0-292"></a>        <span class="n">rgb</span> <span class="o">=</span> <span class="n">colourMap</span><span class="p">[</span><span class="n">colour</span><span class="p">]</span>
@@ -2165,8 +2165,8 @@ At speeds lower than 20 the motor gets given a 'shove' at full speed to help it 
 </span><span id="__span-0-285"><a id="__codelineno-0-285" name="__codelineno-0-285"></a><span class="sd">        led (int): Integer between 0-3 indicating the LED to set.</span>
 </span><span id="__span-0-286"><a id="__codelineno-0-286" name="__codelineno-0-286"></a><span class="sd">        colour (str): Name of colour. Choose from: Red, Orange, Yellow, Green, Blue, Cyan, Violet, Purple, White, Black. </span>
 </span><span id="__span-0-287"><a id="__codelineno-0-287" name="__codelineno-0-287"></a><span class="sd">    &quot;&quot;&quot;</span>
-</span><span id="__span-0-288"><a id="__codelineno-0-288" name="__codelineno-0-288"></a>
-</span><span id="__span-0-289"><a id="__codelineno-0-289" name="__codelineno-0-289"></a>    <span class="k">if</span> <span class="n">colour</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">colourMap</span><span class="p">:</span>
+</span><span id="__span-0-288"><a id="__codelineno-0-288" name="__codelineno-0-288"></a>    <span class="n">colour</span> <span class="o">=</span> <span class="n">colour</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+</span><span id="__span-0-289"><a id="__codelineno-0-289" name="__codelineno-0-289"></a>    <span class="k">if</span> <span class="n">colour</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">colourMap</span><span class="p">:</span>
 </span><span id="__span-0-290"><a id="__codelineno-0-290" name="__codelineno-0-290"></a>        <span class="k">return</span>
 </span><span id="__span-0-291"><a id="__codelineno-0-291" name="__codelineno-0-291"></a>
 </span><span id="__span-0-292"><a id="__codelineno-0-292" name="__codelineno-0-292"></a>    <span class="n">rgb</span> <span class="o">=</span> <span class="n">colourMap</span><span class="p">[</span><span class="n">colour</span><span class="p">]</span>

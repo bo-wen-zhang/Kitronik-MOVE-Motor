@@ -379,6 +379,66 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#lesson-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lesson 3
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lesson 3">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#task-1_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-2_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-3_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 3
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#task-4_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Task 4
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#extension-task-1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extension Task 1
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -759,6 +819,208 @@
 </span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17"></a>    <span class="n">buggy</span><span class="o">.</span><span class="n">motorOn</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
 </span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18"></a>    <span class="n">sleep</span><span class="p">(</span><span class="mi">450</span><span class="p">)</span>
 </span></code></pre></div></td></tr></table></div>
+</details>
+<hr />
+<h2 id="lesson-3"><strong>Lesson 3</strong><a class="headerlink" href="#lesson-3" title="Permanent link">&para;</a></h2>
+<h3 id="task-1_1">Task 1<a class="headerlink" href="#task-1_1" title="Permanent link">&para;</a></h3>
+<p>Program your robot to move forward until it detects an object within a 10cm range in front of it, at which point it stops moving.</p>
+<details class="tip">
+<summary>Parson's Puzzle</summary>
+<p><a class="md-button md-button--primary" href="https://parsons.problemsolving.io/puzzle/c300bacd554f49ea863810fbcbc52897" target="_blank">Open Parson's Puzzle in a new tab</a></p>
+</details>
+<details class="success">
+<summary>Code solution</summary>
+<div class="language-python no-copy no-select highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">main.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span>
+<span class="normal"><a href="#__codelineno-8-12">12</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="kn">from</span> <span class="nn">KitronikMOVEMotor</span> <span class="kn">import</span> <span class="n">MOVEMotor</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="n">buggy</span> <span class="o">=</span> <span class="n">MOVEMotor</span><span class="p">()</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5"></a>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span> 
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7"></a>    <span class="n">distance</span> <span class="o">=</span> <span class="n">buggy</span><span class="o">.</span><span class="n">measureDistance</span><span class="p">()</span> 
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8"></a>    <span class="k">if</span> <span class="n">distance</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9"></a>        <span class="n">buggy</span><span class="o">.</span><span class="n">motorOn</span><span class="p">(</span><span class="s2">&quot;l&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10"></a>        <span class="n">buggy</span><span class="o">.</span><span class="n">motorOn</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12"></a>        <span class="n">buggy</span><span class="o">.</span><span class="n">stopMotors</span><span class="p">()</span>
+</span></code></pre></div></td></tr></table></div>
+</details>
+<h3 id="task-2_1">Task 2<a class="headerlink" href="#task-2_1" title="Permanent link">&para;</a></h3>
+<p>Program your robot to beep its horn when it detects an object within a 20cm range in front of it.</p>
+<details class="tip">
+<summary>Hint</summary>
+<p>Using your program from task 1, add an if statement in your <code>while True</code> loop that calls <code>buggy.beepHorn()</code> if the distance is less than 20.</p>
+</details>
+<details class="tip">
+<summary>Parson's Puzzle</summary>
+<p><a class="md-button md-button--primary" href="https://parsons.problemsolving.io/puzzle/9528bc62bcd24d8791763b3c0746aa95" target="_blank">Open Parson's Puzzle in a new tab</a></p>
+</details>
+<details class="success">
+<summary>Code solution</summary>
+<div class="language-python no-copy no-select highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">main.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span>
+<span class="normal"><a href="#__codelineno-9-11">11</a></span>
+<span class="normal"><a href="#__codelineno-9-12">12</a></span>
+<span class="normal"><a href="#__codelineno-9-13">13</a></span>
+<span class="normal"><a href="#__codelineno-9-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="kn">from</span> <span class="nn">KitronikMOVEMotor</span> <span class="kn">import</span> <span class="n">MOVEMotor</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="n">buggy</span> <span class="o">=</span> <span class="n">MOVEMotor</span><span class="p">()</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5"></a>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span> 
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7"></a>    <span class="n">distance</span> <span class="o">=</span> <span class="n">buggy</span><span class="o">.</span><span class="n">measureDistance</span><span class="p">()</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8"></a>    <span class="k">if</span> <span class="n">distance</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">:</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9"></a>        <span class="n">buggy</span><span class="o">.</span><span class="n">beepHorn</span><span class="p">()</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10"></a>    <span class="k">if</span> <span class="n">distance</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11"></a>        <span class="n">buggy</span><span class="o">.</span><span class="n">motorOn</span><span class="p">(</span><span class="s2">&quot;l&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12"></a>        <span class="n">buggy</span><span class="o">.</span><span class="n">motorOn</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14"></a>        <span class="n">buggy</span><span class="o">.</span><span class="n">stopMotors</span><span class="p">()</span>
+</span></code></pre></div></td></tr></table></div>
+</details>
+<h3 id="task-3_1">Task 3<a class="headerlink" href="#task-3_1" title="Permanent link">&para;</a></h3>
+<p>Program your robot to slow down its speed when it detects an object within a 10-20cm range in front of it. Your program should stop moving when there is an object within a 10cm range in front.</p>
+<details class="tip">
+<summary>Parson's Puzzle</summary>
+<p><a class="md-button md-button--primary" href="https://parsons.problemsolving.io/puzzle/37ab89b6021d4da78a011fbecb010605" target="_blank">Open Parson's Puzzle in a new tab</a></p>
+</details>
+<details class="success">
+<summary>Code solution</summary>
+<div class="language-python no-copy no-select highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">main.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span>
+<span class="normal"><a href="#__codelineno-10-12">12</a></span>
+<span class="normal"><a href="#__codelineno-10-13">13</a></span>
+<span class="normal"><a href="#__codelineno-10-14">14</a></span>
+<span class="normal"><a href="#__codelineno-10-15">15</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kn">from</span> <span class="nn">KitronikMOVEMotor</span> <span class="kn">import</span> <span class="n">MOVEMotor</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="n">buggy</span> <span class="o">=</span> <span class="n">MOVEMotor</span><span class="p">()</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5"></a>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span> 
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7"></a>    <span class="n">distance</span> <span class="o">=</span> <span class="n">buggy</span><span class="o">.</span><span class="n">measureDistance</span><span class="p">()</span>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8"></a>    <span class="k">if</span> <span class="n">distance</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9"></a>        <span class="n">buggy</span><span class="o">.</span><span class="n">motorOn</span><span class="p">(</span><span class="s2">&quot;l&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10"></a>        <span class="n">buggy</span><span class="o">.</span><span class="n">motorOn</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11"></a>    <span class="k">elif</span> <span class="n">distance</span> <span class="o">&lt;=</span> <span class="mi">20</span> <span class="ow">and</span> <span class="n">distance</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12"></a>        <span class="n">buggy</span><span class="o">.</span><span class="n">motorOn</span><span class="p">(</span><span class="s2">&quot;l&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13"></a>        <span class="n">buggy</span><span class="o">.</span><span class="n">motorOn</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15"></a>        <span class="n">buggy</span><span class="o">.</span><span class="n">stopMotors</span><span class="p">()</span>
+</span></code></pre></div></td></tr></table></div>
+</details>
+<h3 id="task-4_1">Task 4<a class="headerlink" href="#task-4_1" title="Permanent link">&para;</a></h3>
+<p>Program your robot to change direction, by turning 90° to the right, when it detects an object within a 10cm range in front of it.</p>
+<details class="tip">
+<summary>Hint</summary>
+<p>Using the code from task 1, replace the code after the <code>else</code> statement with code that will turn the robot 90° to the right.</p>
+</details>
+<details class="tip">
+<summary>Parson's Puzzle</summary>
+<p><a class="md-button md-button--primary" href="https://parsons.problemsolving.io/puzzle/426c24a385de40d8ae233f205b034fd8" target="_blank">Open Parson's Puzzle in a new tab</a></p>
+</details>
+<details class="success">
+<summary>Code solution</summary>
+<div class="language-python no-copy no-select highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">main.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span>
+<span class="normal"><a href="#__codelineno-11-11">11</a></span>
+<span class="normal"><a href="#__codelineno-11-12">12</a></span>
+<span class="normal"><a href="#__codelineno-11-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kn">from</span> <span class="nn">KitronikMOVEMotor</span> <span class="kn">import</span> <span class="n">MOVEMotor</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="n">buggy</span> <span class="o">=</span> <span class="n">MOVEMotor</span><span class="p">()</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5"></a>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span> 
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7"></a>    <span class="n">distance</span> <span class="o">=</span> <span class="n">buggy</span><span class="o">.</span><span class="n">measureDistance</span><span class="p">()</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8"></a>    <span class="k">if</span> <span class="n">distance</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9"></a>        <span class="n">buggy</span><span class="o">.</span><span class="n">motorOn</span><span class="p">(</span><span class="s2">&quot;l&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10"></a>        <span class="n">buggy</span><span class="o">.</span><span class="n">motorOn</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12"></a>        <span class="n">buggy</span><span class="o">.</span><span class="n">motorOn</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13"></a>        <span class="n">sleep</span><span class="p">(</span><span class="mi">450</span><span class="p">)</span>
+</span></code></pre></div></td></tr></table></div>
+</details>
+<h3 id="extension-task-1">Extension Task 1<a class="headerlink" href="#extension-task-1" title="Permanent link">&para;</a></h3>
+<details class="success">
+<summary>Code solution</summary>
+<div class="language-python no-copy no-select highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">main.py</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-12-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-12-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-12-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-12-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-12-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-12-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-12-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-12-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-12-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-12-10">10</a></span>
+<span class="normal"><a href="#__codelineno-12-11">11</a></span>
+<span class="normal"><a href="#__codelineno-12-12">12</a></span>
+<span class="normal"><a href="#__codelineno-12-13">13</a></span>
+<span class="normal"><a href="#__codelineno-12-14">14</a></span>
+<span class="normal"><a href="#__codelineno-12-15">15</a></span>
+<span class="normal"><a href="#__codelineno-12-16">16</a></span>
+<span class="normal"><a href="#__codelineno-12-17">17</a></span>
+<span class="normal"><a href="#__codelineno-12-18">18</a></span>
+<span class="normal"><a href="#__codelineno-12-19">19</a></span>
+<span class="normal"><a href="#__codelineno-12-20">20</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kn">from</span> <span class="nn">microbit</span> <span class="kn">import</span> <span class="o">*</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="kn">from</span> <span class="nn">KitronikMOVEMotor</span> <span class="kn">import</span> <span class="n">MOVEMotor</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="n">buggy</span> <span class="o">=</span> <span class="n">MOVEMotor</span><span class="p">()</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="n">left</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># (1)!</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6"></a>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span> 
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8"></a>    <span class="n">distance</span> <span class="o">=</span> <span class="n">buggy</span><span class="o">.</span><span class="n">measureDistance</span><span class="p">()</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9"></a>    <span class="k">if</span> <span class="n">distance</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10"></a>        <span class="n">buggy</span><span class="o">.</span><span class="n">motorOn</span><span class="p">(</span><span class="s2">&quot;l&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11"></a>        <span class="n">buggy</span><span class="o">.</span><span class="n">motorOn</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12"></a>    <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13"></a>        <span class="k">if</span> <span class="n">left</span><span class="p">:</span>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14"></a>            <span class="n">buggy</span><span class="o">.</span><span class="n">motorOn</span><span class="p">(</span><span class="s2">&quot;l&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15"></a>            <span class="n">buggy</span><span class="o">.</span><span class="n">motorOn</span><span class="p">(</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16"></a>        <span class="k">else</span><span class="p">:</span>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17"></a>            <span class="n">buggy</span><span class="o">.</span><span class="n">motorOn</span><span class="p">(</span><span class="s2">&quot;l&quot;</span><span class="p">,</span> <span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18"></a>            <span class="n">buggy</span><span class="o">.</span><span class="n">motorOn</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19"></a>        <span class="n">sleep</span><span class="p">(</span><span class="mi">450</span><span class="p">)</span>
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20"></a>        <span class="n">left</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">left</span> <span class="c1"># (2)!</span>
+</span></code></pre></div></td></tr></table></div>
+<ol>
+<li><code>left</code> is a boolean value that represents whether the robot is due to turn left.</li>
+<li>After turning the boolean value for <code>left</code> is flipped so that if it turned right, it will turn left next time.</li>
+</ol>
 </details>
 
 
