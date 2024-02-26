@@ -361,7 +361,7 @@ Program your robot to change direction, by turning 90° to the right, when it de
 
 ??? success "Code solution"
 
-    ```{.python .no-copy .no-select linenums="1" title="main.py"}
+    ```{.python .no-copy .code-font .no-select linenums="1" title="main.py"}
     from microbit import *
     from KitronikMOVEMotor import MOVEMotor
 
