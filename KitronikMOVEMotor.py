@@ -357,7 +357,7 @@ class MOVEMotor:
             duration (int, optional): Defaults to 500ms.
         """
         
-        music.pitch(185, duration)
+        music.pitch(185, duration=duration, wait=False)
 
     def measureDistance(self) -> int:
         """
