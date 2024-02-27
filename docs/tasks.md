@@ -241,7 +241,7 @@ Program your robot to move in a zigzag path forever.
 
 ---
 
-## **Lesson 3**
+## **Lesson 3 - Ultrasonic Sensor**
 
 ### Task 1
 
@@ -359,6 +359,8 @@ Program your robot to change direction, by turning 90° to the right, when it de
 
 ### Extension Task 1
 
+Make your robot alternate between turning left and turning right when it detects an object within a 10cm range in front of it.
+
 ??? success "Code solution"
 
     ```{.python .no-copy .code-font .no-select linenums="1" title="main.py"}
@@ -386,3 +388,40 @@ Program your robot to change direction, by turning 90° to the right, when it de
 
     1. `left` is a boolean value that represents whether the robot is due to turn left.
     2. After turning the boolean value for `left` is flipped so that if it turned right, it will turn left next time.
+
+## **Lesson 4 - Line Sensor**
+
+???+ note
+
+    Make sure you have followed the tutorial for programming your robot to follow a black line first. The tutorial can be found [at this link](https://bo-wen-zhang.github.io/Kitronik-MOVE-Motor/tutorials/#using-the-line-following-sensor).
+
+### Task 1
+
+Program your robot to be able to follow a black line but stop moving when an object is within a 10cm range in front of it.
+
+??? success "Code solution"
+
+    ```{.python .no-copy .code-font .no-select linenums="1" title="main.py"}
+    from microbit import *
+    from KitronikMOVEMotor import MOVEMotor
+
+    buggy = MOVEMotor()
+
+    while True:
+        leftSensor = buggy.readLineSensor("l")
+        rightSensor = buggy.readLineSensor("r")
+        difference = abs(leftSensor - rightSensor)
+        distance = buggy.measureDistance()
+        if distance <= 10:
+            buggy.stopMotors()
+        elif difference > 20: 
+            if leftSensor > rightSensor: 
+                buggy.motorOn("l", "f", 30)
+                buggy.motorOff("r")
+            else:
+                buggy.motorOn("r", "f", 30)
+                buggy.motorOff("l")
+        else:
+            buggy.motorOn("l", "f", 30)
+            buggy.motorOn("r", "f", 30)
+    ```
