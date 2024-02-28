@@ -425,3 +425,84 @@ Program your robot to be able to follow a black line but stop moving when an obj
             buggy.motorOn("l", "f", 30)
             buggy.motorOn("r", "f", 30)
     ```
+
+### Task 2
+
+Program your robot to randomly stop moving for 2 seconds while it is following a line. Once the robot continues moving again it should carry on following a line.
+
+???+ tip "Hint"
+
+    During each iteration of the `while True:` loop you can generate a random number using `randint()` from the `random` module and make the program wait for 2 seconds if the random number is equal to a specified number.
+
+??? success "Code solution"
+
+    ```{.python .no-copy .code-font .no-select linenums="1" title="main.py"}
+    from microbit import *
+    from KitronikMOVEMotor import MOVEMotor
+    from random import randint
+
+    buggy = MOVEMotor()
+
+    while True:
+        randomNumber = randint(1, 1000) #(1)!
+        if randomNumber == 1000: # (2)!
+            buggy.stopMotors()
+            sleep(2000)
+        
+        leftSensor = buggy.readLineSensor("l")
+        rightSensor = buggy.readLineSensor("r")
+        difference = abs(leftSensor - rightSensor)
+
+        if difference > 20: 
+            if leftSensor > rightSensor: 
+                buggy.motorOn("l", "f", 30)
+                buggy.motorOff("r")
+            else:
+                buggy.motorOn("r", "f", 30)
+                buggy.motorOff("l")
+        else:
+            buggy.motorOn("l", "f", 30)
+            buggy.motorOn("r", "f", 30)
+    ```
+
+    1. Generate a random number between 1 to 1000 (inclusive)
+    2. If the random number is 1000 then we will stop moving for 2 seconds.
+
+### Task 3
+
+Program your robot to be able to follow a black line and speed up or slow down when the buttons on the micro:bit are pressed.
+
+???+ tip "Hint"
+
+    Your speed should be stored in a variable to make it easy to change its value whenever a button on the micro:bit is pressed.
+
+??? success "Code solution"
+
+    ```{.python .no-copy .code-font .no-select linenums="1" title="main.py"}
+    from microbit import *
+    from KitronikMOVEMotor import MOVEMotor
+
+    buggy = MOVEMotor()
+    speed = 30
+
+    while True:
+        if button_a.was_pressed():
+            speed = speed + 1
+        elif button_b.was_pressed():
+            speed = speed - 1     
+            
+        leftSensor = buggy.readLineSensor("l")
+        rightSensor = buggy.readLineSensor("r")
+        difference = abs(leftSensor - rightSensor)
+
+        if difference > 20: 
+            if leftSensor > rightSensor: 
+                buggy.motorOn("l", "f", speed)
+                buggy.motorOff("r")
+            else:
+                buggy.motorOn("r", "f", speed)
+                buggy.motorOff("l")
+        else:
+            buggy.motorOn("l", "f", speed)
+            buggy.motorOn("r", "f", speed)
+    ```
