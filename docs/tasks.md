@@ -506,3 +506,131 @@ Program your robot to be able to follow a black line and speed up or slow down w
             buggy.motorOn("l", "f", speed)
             buggy.motorOn("r", "f", speed)
     ```
+
+## **Lesson 5 - Input**
+
+### Task 1
+
+Program the robot so that when button A is pressed both of the motors are powered on, and when button B is pressed the motors are turned off.
+
+??? tip "Parson's Puzzle"
+
+    [Open Parson's Puzzle in a new tab](parsons_puzzles/lesson5task1.html){ .md-button .md-button--primary target="_blank"}
+
+??? success "Code solution"
+
+    ```{.python .no-copy .code-font .no-select linenums="1" title="main.py"}
+    from microbit import *
+    from KitronikMOVEMotor import MOVEMotor
+
+    buggy = MOVEMotor()
+
+    while True:
+        if button_a.was_pressed():
+            buggy.motorOn("l", "f", 30)
+            buggy.motorOn("r", "f", 30)
+        elif button_b.was_pressed():
+            buggy.stopMotors()
+    ```
+
+### Task 2
+
+Program the robot so that when button A is pressed the robot spins clockwise, and when button B is pressed the robot spins counter-clockwise instead.
+
+??? tip "Parson's Puzzle"
+
+    [Open Parson's Puzzle in a new tab](parsons_puzzles/lesson5task2.html){ .md-button .md-button--primary target="_blank"}
+
+??? success "Code solution"
+
+    ```{.python .no-copy .code-font .no-select linenums="1" title="main.py"}
+    from microbit import *
+    from KitronikMOVEMotor import MOVEMotor
+
+    buggy = MOVEMotor()
+
+    while True:
+        if button_a.was_pressed():
+            buggy.motorOn("l", "f", 30)
+            buggy.motorOn("r", "r", 30)
+        elif button_b.was_pressed():
+            buggy.motorOn("l", "r", 30)
+            buggy.motorOn("r", "f", 30)
+    ```
+
+### Task 3 
+
+Program the robot to move forward forever. If button a is pressed the robot should speed up by 10, if button b is pressed the robot should slow down by 10.
+
+??? success "Code solution"
+
+    ```{.python .no-copy .code-font .no-select linenums="1" title="main.py"}
+    from microbit import *
+    from KitronikMOVEMotor import MOVEMotor
+
+    buggy = MOVEMotor()
+
+    while True:
+        if button_a.was_pressed():
+            buggy.motorOn("l", "f", 30)
+            buggy.motorOn("r", "r", 30)
+        elif button_b.was_pressed():
+            buggy.motorOn("l", "r", 30)
+            buggy.motorOn("r", "f", 30)
+    ```
+
+### Task 4
+
+Program the robot so that button A will make the robot move forward for 1 second then stop and button B will make the robot move backward for 1 second then stop.
+
+??? success "Code solution"
+
+    ```{.python .no-copy .code-font .no-select linenums="1" title="main.py"}
+    from microbit import *
+    from KitronikMOVEMotor import MOVEMotor
+
+    buggy = MOVEMotor()
+
+    while True:
+        if button_a.was_pressed():
+            buggy.motorOn("l", "f", 30)
+            buggy.motorOn("r", "f", 30)
+            sleep(1000)
+            buggy.stopMotors()
+        elif button_b.was_pressed():
+            buggy.motorOn("l", "r", 30)
+            buggy.motorOn("r", "r", 30)
+            sleep(1000)
+            buggy.stopMotors()
+    ```
+
+### Task 5
+
+Program the robot so that button A controls whether the right motor is on or off and button B controls whether the left motor is on or off.  
+When a motor is on, it should be in the forward direction.  
+If the right motor is on then pressing button A should turn it off, but if the motor is off and button A is pressed then the motor should turn on.
+
+??? success "Code solution"
+
+    ```{.python .no-copy .code-font .no-select linenums="1" title="main.py"}
+    from microbit import *
+    from KitronikMOVEMotor import MOVEMotor
+
+    buggy = MOVEMotor()
+    leftMotorIsOn = False
+    rightMotorIsOn = False
+
+    while True:
+        if button_a.was_pressed():
+            if rightMotorIsOn:
+                buggy.motorOff("r")
+            else:
+                buggy.motorOn("r", "f", 30)
+            rightMotorIsOn = not rightMotorIsOn
+        elif button_b.was_pressed():
+            if leftMotorIsOn:
+                buggy.motorOff("l")
+            else:
+                buggy.motorOn("l", "f", 30)
+            leftMotorIsOn = not leftMotorIsOn
+    ```
