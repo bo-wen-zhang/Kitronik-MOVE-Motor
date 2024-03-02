@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Lesson 5 Task 5</title>
+        <link href="../parsons.css" rel="stylesheet" />
+        <link href="../lib/prettify.css" rel="stylesheet" />
+        <script src="../lib/prettify.js"></script>
+    </head>
+    <body>
+        <h2>Lesson 5  - Task 5</h2>
+        <p>Program the robot so that button A controls whether the right motor is on or off and button B controls whether the left motor is on or off.</p>
+        <p>When a motor is on, it should be in the forward direction.</p>  
+        <p>If the right motor is on then pressing button A should turn it off, but if the motor is off and button A is pressed then the motor should turn on.</p>
+        <div id="sortableTrash" class="sortable-code"></div>
+        <div id="sortable" class="sortable-code">
+        </div>
+        <div style="clear:both;"></div>
+        <p class="center">
+            <a href="#" id="newInstanceLink">Reset</a>
+            <a href="#" id="feedbackLink">Get feedback</a>
+        </p>
+        <script src="../lib/jquery.min.js"></script>
+        <script src="../lib/jquery-ui.min.js"></script>
+        <script src="../lib/jquery.ui.touch-punch.min.js"></script>
+        <script src="../lib/underscore-min.js"></script>
+        <script src="../lib/lis.js"></script>
+        <script src="../parsons.js"></script>
+        <script>
+        var initial = 'from microbit import *\\n'+
+                      'from KitronikMOVEMotor import MOVEMotor\n'+            
+                      'buggy = MOVEMotor()\\n'+
+                      'leftMotorIsOn = False\\n'+
+                      'rightMotorIsOn = False\n'+
+                      'while True:\n'+
+                      '    if button_a.was_pressed():\n'+
+                      '        if rightMotorIsOn:\\n'+
+                      '           buggy.motorOff("r")\n'+
+                      '        else:\\n'+
+                      '           buggy.motorOn("r", "f", 30)\\n'+
+                      '       rightMotorIsOn = not rightMotorIsOn\n'+
+                      '    elif button_b.was_pressed():\n'+
+                      '        if leftMotorIsOn:\\n'+
+                      '           buggy.motorOff("l")\n'+
+                      '        else:\\n'+
+                      '           buggy.motorOn("l", "f", 30)\\n'+
+                      '       leftMotorIsOn = not leftMotorIsOn\n'
+                  
+
+
+        function displayErrors(fb) {
+            if(fb.errors.length > 0) {
+                alert(fb.errors[0]);
+            }
+        } 
+
+        $(document).ready(function(){
+            var parson = new ParsonsWidget({
+                'sortableId': 'sortable',
+                'trashId': 'sortableTrash',
+                'max_wrong_lines': 1,
+                'feedback_cb' : displayErrors,
+                can_indent: false,
+            });
+            parson.init(initial);
+            parson.shuffleLines();
+            $("#newInstanceLink").click(function(event){
+                event.preventDefault();
+                parson.shuffleLines();
+            });
+            $("#feedbackLink").click(function(event){
+                event.preventDefault();
+                parson.getFeedback();
+            });
+        });
+        </script>
+    </body>
+</html>

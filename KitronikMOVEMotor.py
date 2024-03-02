@@ -184,20 +184,24 @@ class MOVEMotor:
                 wsIndex = 1
                 if direction == FORWARD:
                     motorBuf[0] = speed
-                    motorShove[0] = 255
+                    motorShove[0] = 60
                 elif direction == REVERSE:
                     motorBuf[1] = speed
-                    motorShove[1] = 255
+                    motorShove[1] = 60
             elif motor == RIGHT:
                 wsIndex = 0
                 if direction == FORWARD:
                     motorBuf[1] = speed
-                    motorShove[1] = 255
+                    motorShove[1] = 60
                 elif direction == REVERSE:
                     motorBuf[0] = speed
-                    motorShove[0] = 255
-            if speed < 51:
-                #Gives the motor a 'shove' at full power to aid starting on lower pwm ratios
+                    motorShove[0] = 60
+            if 0 < speed < 26:
+                #Gives the motor a 'shove' to aid starting on lower pwm ratios
+                self._ws2811[wsIndex] = (3*motorShove[0]//4, 3*motorShove[1]//4, 3*motorShove[2]//4)
+                self._ws2811.show()
+                sleep(5)
+            elif 26 <= speed < 51:
                 self._ws2811[wsIndex] = (motorShove[0], motorShove[1], motorShove[2])
                 self._ws2811.show()
                 sleep(5)

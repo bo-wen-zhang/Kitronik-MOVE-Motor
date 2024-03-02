@@ -560,7 +560,11 @@ Program the robot so that when button A is pressed the robot spins clockwise, an
 
 ### Task 3 
 
-Program the robot to move forward forever. If button a is pressed the robot should speed up by 10, if button b is pressed the robot should slow down by 10.
+Program the robot to move forward forever. If button A is pressed the robot should speed up by 10, if button B is pressed the robot should slow down by 10.
+
+??? tip "Parson's Puzzle"
+
+    [Open Parson's Puzzle in a new tab](parsons_puzzles/lesson5task3.html){ .md-button .md-button--primary target="_blank"}
 
 ??? success "Code solution"
 
@@ -569,19 +573,23 @@ Program the robot to move forward forever. If button a is pressed the robot shou
     from KitronikMOVEMotor import MOVEMotor
 
     buggy = MOVEMotor()
-
+    speed = 20
     while True:
         if button_a.was_pressed():
-            buggy.motorOn("l", "f", 30)
-            buggy.motorOn("r", "r", 30)
+            speed = speed + 10
         elif button_b.was_pressed():
-            buggy.motorOn("l", "r", 30)
-            buggy.motorOn("r", "f", 30)
+            speed = speed - 10
+        buggy.motorOn("l", "f", speed)
+        buggy.motorOn("r", "f", speed)
     ```
 
 ### Task 4
 
-Program the robot so that button A will make the robot move forward for 1 second then stop and button B will make the robot move backward for 1 second then stop.
+Program the robot so that pressing button A will make the robot move forward for 1 second then stop and pressing button B will make the robot move backward for 1 second then stop.
+
+??? tip "Parson's Puzzle"
+
+    [Open Parson's Puzzle in a new tab](parsons_puzzles/lesson5task4.html){ .md-button .md-button--primary target="_blank"}
 
 ??? success "Code solution"
 
@@ -610,6 +618,10 @@ Program the robot so that button A controls whether the right motor is on or off
 When a motor is on, it should be in the forward direction.  
 If the right motor is on then pressing button A should turn it off, but if the motor is off and button A is pressed then the motor should turn on.
 
+??? tip "Parson's Puzzle"
+
+    [Open Parson's Puzzle in a new tab](parsons_puzzles/lesson5task5.html){ .md-button .md-button--primary target="_blank"}
+
 ??? success "Code solution"
 
     ```{.python .no-copy .code-font .no-select linenums="1" title="main.py"}
@@ -634,3 +646,6 @@ If the right motor is on then pressing button A should turn it off, but if the m
                 buggy.motorOn("l", "f", 30)
             leftMotorIsOn = not leftMotorIsOn
     ```
+
+## **Lesson 6 - Display**
+
