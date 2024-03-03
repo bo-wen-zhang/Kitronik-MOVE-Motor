@@ -46,13 +46,30 @@ buggy = MOVEMotor()
 
 buggy.motorOn("l", "f", 25)
 buggy.motorOn("r", "f", 25)
-sleep(5000)
+sleep(5000) # (2)!
 buggy.stopMotors() # (1)!
 ```
 
 1. `stopMotors()` will stop both the left and right motors.
 
-`sleep(5000)` will suspend the execution of the program for 5 seconds (5000ms).
+2. `sleep(5000)` will suspend the execution of the program for 5 seconds (5000ms).
+
+## **Moving back and forth**
+
+``` py linenums="1" title="main.py"
+from microbit import *
+from KitronikMOVEMotor import MOVEMotor
+
+buggy = MOVEMotor()
+
+while True:
+    buggy.motorOn("l", "f", 25)
+    buggy.motorOn("r", "f", 25)
+    sleep(2000)
+    buggy.motorOn("l", "r", 25)
+    buggy.motorOn("r", "r", 25)
+    sleep(2000)
+```
 
 ## **Turning on one wheel**
 

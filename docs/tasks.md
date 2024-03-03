@@ -649,3 +649,70 @@ If the right motor is on then pressing button A should turn it off, but if the m
 
 ## **Lesson 6 - Display**
 
+!!! note
+
+    To display an image to the LED grid you need to use `display.show(NAME_OF_IMAGE)` and replace `NAME_OF_IMAGE`
+
+### Task 1
+
+Copy and paste the program found [here](https://bo-wen-zhang.github.io/Kitronik-MOVE-Motor/tutorials/#using-the-ultrasonic-sensor){target="_blank"} into your editor. Extend the program to make the micro:bit display an X on the LED grid when the robot stops moving. When the robot is moving the LED grid should display a check mark.
+
+Use `display.show(Image.NO)` for the image of X.  
+Use `display.show(Image.YES)` for the image of a check mark.
+
+### Task 2
+
+Modify your program from task 1 and make your robot light up your own image while it is moving forward.
+
+???+ success "Example of creating a custom image of a square"
+
+    ```{.python .code-font linenums="1" title="main.py"}
+    from microbit import *
+    square = Image("99999:"
+                   "90009:"
+                   "90009:"
+                   "90009:"
+                   "99999")
+
+    display.show(square)
+    ```
+
+### Task 3
+
+Copy and paste the program found [here](https://bo-wen-zhang.github.io/Kitronik-MOVE-Motor/tutorials/#moving-back-and-forth){target="_blank"} into your editor. Extend the program to make the chassis LEDs blue when the robot is moving forward and red when it is moving backward.
+
+???+ success "Example of lighting the chassis LEDs green"
+
+    ```{.python .code-font linenums="1" title="main.py"}
+    from microbit import *
+    from KitronikMOVEMotor import MOVEMotor
+
+    buggy = MOVEMotor()
+    buggy.setAllLED("green")
+    buggy.showLEDs()
+    ```
+
+### Task 4
+
+Copy and paste the program found [here](https://bo-wen-zhang.github.io/Kitronik-MOVE-Motor/tutorials/#using-the-line-following-sensor){target="_blank"} into your editor. Extend the program so that when button A is pressed all of the chassis LEDs turn purple and when button B is pressed they all turn orange.
+
+???+ success "Reminder of how to use the buttons on the micro:bit"
+
+    ```{.python .code-font linenums="1" title="main.py"}
+    from microbit import *
+    from KitronikMOVEMotor import MOVEMotor
+
+    buggy = MOVEMotor()
+    while True:
+        if button_a.was_pressed():
+            # code to execute when button A is pressed
+    ```
+
+### Task 5
+
+Extend the program from task 4 to make the robot display on the LED grid the direction that it is moving. It should show an up arrow when it is moving forward, and a left/right arrow when it is turning left/right.
+
+The images that you need are:  
+`Image.ARROW_N`  
+`Image.ARROW_E`  
+`Image.ARROW_W`
