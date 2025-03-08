@@ -4,13 +4,13 @@
 
 ## **Lesson 1**
 
-### Making the robot move back and forth
+### Task 3
 
 Program your robot to move forward for 3 seconds then stop and reverse back to where it started.
 
 ??? tip "Parson's Puzzle"
 
-    [Open Parson's Puzzle in a new tab](https://parsons.problemsolving.io/puzzle/414f2321311b4345892350d83c23c988){ .md-button .md-button--primary target="_blank"}
+    [Open Parson's Puzzle in a new tab](parsons_puzzles/lesson1task3.html){ .md-button .md-button--primary target="_blank"}
 
 ??? success "Code solution"
 
@@ -39,7 +39,7 @@ Program your robot to move forward for 2 seconds, turn roughly 90° clockwise th
 
 ??? tip "Parson's Puzzle"
 
-    [Open Parson's Puzzle in a new tab](https://parsons.problemsolving.io/puzzle/13e71a16d8be45a58a79e592d1d5bbba){ .md-button .md-button--primary target="_blank"}
+    [Open Parson's Puzzle in a new tab](parsons_puzzles/lesson2task1.html){ .md-button .md-button--primary target="_blank"}
 
 ??? success "Code solution"
 
@@ -57,13 +57,9 @@ Program your robot to move forward for 2 seconds, turn roughly 90° clockwise th
     buggy.motorOn('r', 'f', 25)
     ```
 
-### Task 2
+### Task 2 Deprecate
 
 Program your robot to move forward for 2 seconds, turn roughly 180° clockwise then continue moving forward.
-
-??? tip "Parson's Puzzle"
-
-    [Open Parson's Puzzle in a new tab](https://parsons.problemsolving.io/puzzle/163ff47bbaa8418eb48943ad754c8f86){ .md-button .md-button--primary target="_blank"}
 
 ??? success "Code solution"
 
@@ -85,11 +81,11 @@ Program your robot to move forward for 2 seconds, turn roughly 180° clockwise t
 
 Program your robot to move up and down a line forever.  
   
-*It is fine if it doesn't move in an exact line because it may not turn exactly 180° each time.*
+*It's fine if it doesn't move in an exact line because it may not turn exactly 180° each time.*
 
 ??? tip "Parson's Puzzle"
 
-    [Open Parson's Puzzle in a new tab](https://parsons.problemsolving.io/puzzle/4428cb1cdc08443c868aa9227f4649c6){ .md-button .md-button--primary target="_blank"}
+    [Open Parson's Puzzle in a new tab](parsons_puzzles/lesson2task3.html){ .md-button .md-button--primary target="_blank"}
 
 ??? success "Code solution"
 
@@ -111,6 +107,10 @@ Program your robot to move up and down a line forever.
 
 Program your robot to move in the path of a square once then stop.
 
+??? tip "Parson's Puzzle"
+
+    [Open Parson's Puzzle in a new tab](parsons_puzzles/lesson2task4.html){ .md-button .md-button--primary target="_blank"}
+
 ??? success "Code solution"
 
     ```{.python .no-copy .no-select linenums="1" title="main.py"}
@@ -119,21 +119,12 @@ Program your robot to move in the path of a square once then stop.
 
     buggy = MOVEMotor()
 
-    buggy.motorOn('l', 'f', 25)
-    buggy.motorOn('r', 'f', 25)
-    sleep(2000)
-    buggy.motorOn('r', 'r', 25)
-    sleep(450)
-    buggy.motorOn('r', 'f', 25)
-    sleep(2000)
-    buggy.motorOn('r', 'r', 25)
-    sleep(450)
-    buggy.motorOn('r', 'f', 25)
-    sleep(2000)
-    buggy.motorOn('r', 'r', 25)
-    sleep(450)
-    buggy.motorOn('r', 'f', 25)
-    sleep(2000)
+    for i in range(4):
+        buggy.motorOn("l", "f", 25)
+        buggy.motorOn("r", "f", 25)
+        sleep(2000)
+        buggy.motorOn("r", "r", 25)
+        sleep(450)
     buggy.stopMotors()
     ```
 
@@ -142,10 +133,6 @@ Program your robot to move in the path of a square once then stop.
 Program your robot to move in the path of a square forever.  
   
 *Use a while True: loop*
-
-??? tip "Parson's Puzzle"
-
-    [Open Parson's Puzzle in a new tab](https://parsons.problemsolving.io/puzzle/be625819bb2e4c62947822063a5db3d3){ .md-button .md-button--primary target="_blank"}
 
 ??? success "Code solution"
 
@@ -249,7 +236,7 @@ Program your robot to move forward until it detects an object within a 10cm rang
 
 ??? tip "Parson's Puzzle"
 
-    [Open Parson's Puzzle in a new tab](https://parsons.problemsolving.io/puzzle/c300bacd554f49ea863810fbcbc52897){ .md-button .md-button--primary target="_blank"}
+    [Open Parson's Puzzle in a new tab](parsons_puzzles/lesson3task1.html){ .md-button .md-button--primary target="_blank"}
 
 ??? success "Code solution"
 
@@ -276,10 +263,6 @@ Program your robot to beep its horn when it detects an object within a 20cm rang
 
     Using your program from task 1, add an if statement in your `while True` loop that calls `buggy.beepHorn()` if the distance is less than 20.
 
-??? tip "Parson's Puzzle"
-
-    [Open Parson's Puzzle in a new tab](https://parsons.problemsolving.io/puzzle/9528bc62bcd24d8791763b3c0746aa95){ .md-button .md-button--primary target="_blank"}
-
 ??? success "Code solution"
 
     ```{.python .no-copy .no-select linenums="1" title="main.py"}
@@ -305,7 +288,7 @@ Program your robot to slow down its speed when it detects an object within a 10-
 
 ??? tip "Parson's Puzzle"
 
-    [Open Parson's Puzzle in a new tab](https://parsons.problemsolving.io/puzzle/37ab89b6021d4da78a011fbecb010605){ .md-button .md-button--primary target="_blank"}
+    [Open Parson's Puzzle in a new tab](parsons_puzzles/lesson3task3.html){ .md-button .md-button--primary target="_blank"}
 
 ??? success "Code solution"
 
@@ -320,7 +303,7 @@ Program your robot to slow down its speed when it detects an object within a 10-
         if distance > 20:
             buggy.motorOn("l", "f", 25)
             buggy.motorOn("r", "f", 25)
-        elif distance <= 20 and distance > 10:
+        elif distance > 10:
             buggy.motorOn("l", "f", 20)
             buggy.motorOn("r", "f", 20)
         else:
@@ -337,7 +320,7 @@ Program your robot to change direction, by turning 90° to the right, when it de
 
 ??? tip "Parson's Puzzle"
 
-    [Open Parson's Puzzle in a new tab](https://parsons.problemsolving.io/puzzle/426c24a385de40d8ae233f205b034fd8){ .md-button .md-button--primary target="_blank"}
+    [Open Parson's Puzzle in a new tab](parsons_puzzles/lesson3task4.html){ .md-button .md-button--primary target="_blank"}
 
 ??? success "Code solution"
 
@@ -353,7 +336,7 @@ Program your robot to change direction, by turning 90° to the right, when it de
             buggy.motorOn("l", "f", 25)
             buggy.motorOn("r", "f", 25)
         else:
-            buggy.motorOn('r', 'r', 25)
+            buggy.motorOn("r", "r", 25)
             sleep(450)
     ```
 
